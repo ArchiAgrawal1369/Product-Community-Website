@@ -1,0 +1,75 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mb-0 h1"> <img src="favicon.ico" alt="Logo" width="60" height="60"
+          class="d-inline-block align-text-top"></a>
+        <a class="navbar-brand" >ShopScape</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item  px-3">
+              <a class="nav-link" routerLink="/raisereview">Ask for Review</a>
+            </li>
+            <li class="nav-item  px-3">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">Find the most trusted products here.</h1>
+        <p class="lead mt-4"><strong>Search high-quality products either by product code or by name and/or brand.</strong></p>
+        <form (ngSubmit)="prodSearchByKeyword()" class="form-inline mt-5">
+          <div class="form-group mx-sm-3 mb-2">
+            <input type="text" class="form-control" placeholder="Search by Product Code" [(ngModel)]="productKey" name="productKey" id="productKey">
+          </div>
+          <button type="submit" class="btn btn-dark mb-2">Search</button>
+        </form>
+        
+        <div class="mt-4 mx-5 text-right">
+          <label class="mx-5" for="color-filter">Filter by color</label>
+          <select class="col-mb-2" aria-label=".form-select-lg example" id="color-filter" (change)="filterByColor($event.target.value)">
+            <option value="">AllColors</option>
+            <option value="White">White</option>
+            <option value="Black">Black</option>
+            <option value="Pink">Pink</option>
+          </select>
+          <label class="mx-5" for="brand-filter">Filter by brand</label>
+          <select class="col-mb-2" aria-label=".form-select-lg example" id="brand-filter" (change)="filterByBrand($event.target.value)">
+            <option value="">AllBrands</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Puma">Puma</option>
+            <option value="Chanel">Chanel</option>
+            <option value="Baggit">Baggit</option>
+            <option value="Zara">Zara</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <h4 *ngIf="alert" class="text-danger text-center">{{msg}}</h4>
+  <div class="row pb-5 px-4 py-4">
+    <div class="col-sm-3" *ngFor="let product of listproducts">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title px-4">{{product.productName}}</h4>
+          <h5 class="card-text px-4"><strong>{{product.productBrand}}</strong></h5>
+          <p class="card-text px-4"><strong>{{product.productCode}}</strong></p>
+          <p class="card-text px-4">Color: {{product.productColor}}</p>
+          <p class="card-text px-4">Price: Rs. {{product.productPrice}}</p>
+          <a routerLink="/result/{{product.productCode}}" class="btn btn-dark mx-4">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center py-4">
+    <p>&copy; 2023 ShopScape. All rights reserved.</p>
+  </footer>

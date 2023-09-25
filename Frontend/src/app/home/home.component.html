@@ -1,0 +1,64 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mb-0 h1"> <img src="favicon.ico" alt="Logo" width="60" height="60"
+          class="d-inline-block align-text-top"></a>
+        <a class="navbar-brand" >ShopScape</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active  px-3">
+              <a class="nav-link">Home</a>
+            </li>
+            <li class="nav-item  px-3">
+              <a class="nav-link" routerLink="/register">Join</a>
+            </li>
+            <li class="nav-item  px-3">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li class="nav-item  px-3">
+              <a class="nav-link" routerLink="/admin">Admin</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="jumbotron mb-0">
+      <div class="container">
+        <h1 class="display-4">Your Marketplace Next Door.</h1>
+        <p class="lead">Best deals now available at your fingertips. Happy Browsing.</p>
+      </div>
+    </div>
+  </main>
+  <div class="container stat">
+    <div class="row py-4">
+      <div class="col-3">
+        <img src="https://img.icons8.com/?size=512&id=85167&format=png" height="40px">
+        <h4>{{numberofUsers}}</h4>
+        <h6>Registered Users</h6>
+      </div>
+
+      <div class="col-3">
+        <img src="https://img.icons8.com/?size=512&id=dNyMmGFereGT&format=png" height="40px">
+        <h4>{{numberOfProducts}}</h4>
+        <h6>Products to Shop</h6>
+      </div>
+      <div class="col-3">
+        <img src="https://img.icons8.com/?size=512&id=FxwLyvikSMRp&format=png" height="40px">
+        <h4>{{numberofReviews}}</h4>
+        <h6>Trusted Reviews</h6>
+      </div>
+      <div class="col-3">
+        <img src="https://img.icons8.com/?size=512&id=alBKHAjL3MbI&format=png" height="40px">
+        <h4>100%</h4>
+        <h6>Genuine Products</h6>
+      </div>
+    </div>
+  </div>
+  <footer class="text-center py-4">
+    <p>&copy; 2023 ShopScape. All rights reserved.</p>
+  </footer>

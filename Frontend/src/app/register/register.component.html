@@ -1,0 +1,69 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mb-0 h1"> <img src="favicon.ico" alt="Logo" width="60" height="60"
+        class="d-inline-block align-text-top"></a>
+    <a class="navbar-brand" routerLink="">ShopScape</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item  px-3">
+          <a class="nav-link" routerLink="">Home</a>
+        </li>
+        <li class="nav-item active px-3">
+          <a class="nav-link">Join</a>
+        </li>
+        <li class="nav-item  px-3">
+          <a class="nav-link" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item  px-3">
+          <a class="nav-link" routerLink="/admin">Admin</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container col-md-5">
+    <div id="newstyle">
+    <form #registrationform="ngForm" (ngSubmit)=userRegister()>
+      <small class="text-danger" >{{msg}}</small>
+      <div class="form-group">
+        <input type="email" [(ngModel)]="user.emailId" class="form-control" placeholder="Email *" id="emailId"
+          name="emailId" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched">
+        <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email Id is required</small>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="text" [(ngModel)]="user.firstName" class="form-control" placeholder="First Name" id="firstName"
+            name="firstName">
+        </div>
+        <div class="form-group col-md-6">
+          <input type="text" [(ngModel)]="user.lastName" class="form-control" placeholder="Last Name" id="lastName"
+            name="lastName">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <input type="password" [(ngModel)]="user.password" class="form-control" placeholder="Password *" id="password"
+            name="password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
+          <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+        </div>
+        <div class="form-group col-md-6">
+          <input type="password" class="form-control" placeholder="Confirm password *" id="cpassword"
+          name="cpassword" required #cpassword="ngModel" (ngModel)="user.password" [class.is-invalid]="cpassword.invalid && cpassword.touched">
+          <small class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">
+            Password doesn't match</small>
+        </div>
+      </div>
+      <button [disabled]="registrationform.form.invalid" type="submit" class="btn btn-dark">SUBMIT</button>
+    </form>
+    </div>
+  </div>
+</main>
+<footer class="text-center py-4">
+  <p>&copy; 2023 ShopScape. All rights reserved.</p>
+</footer>

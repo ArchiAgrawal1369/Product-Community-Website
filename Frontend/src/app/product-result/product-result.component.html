@@ -1,0 +1,30 @@
+<main>
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card bg-light mt-5">
+            <div class="card-body">
+            <h3 class="card-title text-center">{{prodName}} </h3>
+            <ul class="list-group ">
+                <li class="list-group-item"><strong>Code:</strong> {{prodCode}}</li>
+                <li class="list-group-item"><strong> Brand:</strong> {{prodBrand}} </li>
+                <li class="list-group-item"><strong>Price:</strong>  Rs. {{prodPrice}} </li>
+                <li class="list-group-item"><strong> Color:</strong> {{prodColor}} </li>
+                <li class="list-group-item"><strong> Ratings:</strong> {{avgRating}} </li>
+                <li class="list-group-item"><strong> Reviews:</strong> 
+                <ul style="list-style-type:disc" *ngFor="let rev of reviews">
+                  <li> {{rev.review}}</li>
+                </ul>
+                </li>
+               
+            </ul>
+            <a routerLink="/review/{{prodCode}}" class="btn btn-dark mt-3">Add Reviews</a>
+          </div>
+          <div class="card-footer bg-dark text-muted text-center">
+            &copy; ShopScape
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

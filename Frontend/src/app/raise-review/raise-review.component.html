@@ -1,0 +1,51 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand mb-0 h1"> <img src="favicon.ico" alt="Logo" width="60" height="60"
+          class="d-inline-block align-text-top"></a>
+        <a class="navbar-brand" >ShopScape</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item  px-3">
+              <a class="nav-link" (click)="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+  </header>
+  <main>
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3 mt-5">
+        <h4 *ngIf="alert" class="text-danger text-center">{{msg}} </h4>
+        <form [formGroup]="productDetail" (ngSubmit)="addProductDetail()">
+          <div class="form-group">
+            <label>Product Code</label>
+            <input type="text" class="form-control" formControlName="productCode">
+          </div>
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" class="form-control" formControlName="productName"> 
+          </div>
+          <div class="form-group">
+            <label>Product Brand</label>
+            <input type="text" class="form-control" formControlName="productBrand">
+          </div>
+          <div class="form-group">
+            <label>Product Color</label>
+            <input type="text" class="form-control" formControlName="productColor">
+          </div>
+          <div class="form-group">
+            <label>Product Price</label>
+            <input type="text" class="form-control" formControlName="productPrice">
+          </div>
+          <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  </main>

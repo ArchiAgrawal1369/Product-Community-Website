@@ -1,0 +1,39 @@
+<h4 class=" text-center">Admin Control: Manage Reviews</h4>
+<a id="logout" (click)="logout()"><button class="btn btn-info mt-2" type="submit">Logout</button></a>
+ 
+<table class="table table-hover">
+    <thead class="thead">
+        <tr>
+            <th>ProductCode</th>
+            <th>ReviewCode</th>
+            <th>Review</th>
+            <th>Rating</th>
+            <th>Action</th>     
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr *ngFor="let item of reviews">
+            <td>
+                {{item.product.productCode}}
+            </td>
+            <td>
+                {{item.reviewCode}}
+            </td>
+            <td>
+                {{item.review}}
+            </td>
+            <td>
+                {{item.ratings}}
+            </td>
+            <td>
+            <a (click)="approve(item.reviewCode)"><button class="btn btn-info btn-sm mx-1 ">Approve</button></a>
+            <a (click)="reject(item.reviewCode)"><button class="btn btn-info btn-sm mx-1 ">Reject</button></a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
